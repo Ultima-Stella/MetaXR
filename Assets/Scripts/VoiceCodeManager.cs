@@ -1,12 +1,13 @@
 ﻿using Meta.WitAi; // Meta Voice SDK'nın namespace'i
 using Meta.WitAi.Dictation; // Dictation için gerekli namespace
+using TMPro;
 using UnityEngine;
 
 public class VoiceCodeManager : MonoBehaviour
 {
     public WitDictation witDictation; // WitDictation bileşeni
     public GameObject cube;
-
+    public TextMeshProUGUI text;
     private void Start()
     {
         if (witDictation == null)
@@ -28,15 +29,17 @@ public class VoiceCodeManager : MonoBehaviour
     private void OnTranscriptionReceived(string transcription)
     {
         Debug.Log("Duyulan: " + transcription);
-
+        text.text = transcription;
         // Metne göre komutları işleme
-        if (transcription.ToLower().Contains("ışığı aç"))
+        if (transcription.ToLower().Contains("Attack"))
         {
             TurnOnLight(); // Komut ile ilgili aksiyonu tetikle
+            text.text = "Attack";
         }
-        else if (transcription.ToLower().Contains("ışığı kapat"))
+        else if (transcription.ToLower().Contains("Line Up"))
         {
             TurnOffLight();
+            text.text = "Line up";
         }
         else
         {
