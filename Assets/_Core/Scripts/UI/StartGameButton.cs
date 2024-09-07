@@ -15,6 +15,6 @@ public class StartGameButton : MonoBehaviour
 
     private void OnButtonClick()
     {
-        GameObject.FindObjectOfType<GameManager>().StartGame();
+        //GameObject.FindObjectOfType<GameManager>().StartGame();
     }
 }
