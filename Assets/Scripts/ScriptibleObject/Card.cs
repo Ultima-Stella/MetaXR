@@ -8,5 +8,6 @@ public class Card : ScriptableObject
     public int troopCount;
     public string title;
     public string description;
-    public Image image;
+    public int loot; 
+    public GameObject prefab;
 }
