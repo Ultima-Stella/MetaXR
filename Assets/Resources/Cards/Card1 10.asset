@@ -16,4 +16,5 @@ MonoBehaviour:
   troopCount: 5
   title: arc5
   description: 
-  image: {fileID: 0}
+  loot: 2
+  prefab: {fileID: 1645722145297625906, guid: 7e4c0bc584a238b4b8a8aedc236aae2e, type: 3}

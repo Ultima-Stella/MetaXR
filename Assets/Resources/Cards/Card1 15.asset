@@ -16,4 +16,5 @@ MonoBehaviour:
   troopCount: 3
   title: spe3
   description: 
-  image: {fileID: 0}
+  loot: 2
+  prefab: {fileID: 5096660730527522124, guid: c496ce236936f4c4982b3e4b31614c93, type: 3}

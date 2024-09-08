@@ -16,4 +16,5 @@ MonoBehaviour:
   troopCount: 3
   title: cav3
   description: 
-  image: {fileID: 0}
+  loot: 2
+  prefab: {fileID: 1047540911243904573, guid: d0109d53a1556964aa2c7bab314a766f, type: 3}

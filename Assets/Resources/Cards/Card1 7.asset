@@ -16,4 +16,5 @@ MonoBehaviour:
   troopCount: 3
   title: inf3
   description: 
-  image: {fileID: 0}
+  loot: 2
+  prefab: {fileID: 1413057541796704671, guid: 577a6458c1a0ded4cb664f6dda26e26f, type: 3}
