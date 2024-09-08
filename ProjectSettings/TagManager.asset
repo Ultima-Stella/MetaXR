@@ -7,11 +7,17 @@ TagManager:
   - Locals
   - Foreigners
   - Plane
+  - FxTemporaire
+  - Hand
+  - Head
+  - Bullet
+  - Marked
+  - Unmarked
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MarkedObjects
   - Water
   - UI
   - Units

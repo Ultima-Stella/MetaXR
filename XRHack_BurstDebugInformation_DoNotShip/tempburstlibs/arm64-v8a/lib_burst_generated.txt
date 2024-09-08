@@ -13,6 +13,7 @@ Library: C:\Users\TU\OneDrive\Belgeler\GitHub\MetaXR\Temp\BurstOutput\tempburstl
 --assembly-defines=AssistantCoreSDKRuntime;
 --assembly-defines=CFXRDemo;
 --assembly-defines=CFXRRuntime;
+--assembly-defines=Cinemachine;
 --assembly-defines=Facebook.Wit.Dictation;
 --assembly-defines=Gleechi.VirtualGrasp.Editor;
 --assembly-defines=Gleechi.VirtualGrasp.Onboarding;
@@ -44,6 +45,7 @@ Library: C:\Users\TU\OneDrive\Belgeler\GitHub\MetaXR\Temp\BurstOutput\tempburstl
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.TextMeshPro;
+--assembly-defines=Unity.Timeline;
 --assembly-defines=Unity.XR.Management;
 --assembly-defines=Unity.XR.Oculus;
 --assembly-defines=UnityEngine;
@@ -71,6 +73,7 @@ Library: C:\Users\TU\OneDrive\Belgeler\GitHub\MetaXR\Temp\BurstOutput\tempburstl
 --assembly-defines=AssistantCoreSDKRuntime;
 --assembly-defines=CFXRDemo;
 --assembly-defines=CFXRRuntime;
+--assembly-defines=Cinemachine;
 --assembly-defines=Facebook.Wit.Dictation;
 --assembly-defines=Gleechi.VirtualGrasp.Editor;
 --assembly-defines=Gleechi.VirtualGrasp.Onboarding;
@@ -102,6 +105,7 @@ Library: C:\Users\TU\OneDrive\Belgeler\GitHub\MetaXR\Temp\BurstOutput\tempburstl
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.TextMeshPro;
+--assembly-defines=Unity.Timeline;
 --assembly-defines=Unity.XR.Management;
 --assembly-defines=Unity.XR.Oculus;
 --assembly-defines=UnityEngine;
