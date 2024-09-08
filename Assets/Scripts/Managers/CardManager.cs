@@ -18,7 +18,7 @@ public class CardManager : MonoBehaviour
     public GameObject openButton;
     public GameManager gameManager;
 
-
+    Image[] cardImages;
     List<GameObject> currentTroops = new List<GameObject>();
     private bool deckOpen = false;
     bool inPlane = false;
