@@ -53,6 +53,7 @@ public class CardManager : MonoBehaviour
 
         for (int i = 0; i < currentDeck.cards.Count; i++)
         {
+            cards[i].GetComponent<Button>().image = currentDeck.cards[i].image;
 
             cards[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = currentDeck.cards[i].cost.ToString();
         }
@@ -61,11 +62,11 @@ public class CardManager : MonoBehaviour
 
     }
 
-    public async void ProcessCard(int index)
+    public  void ProcessCard(int index)
     {
 
         gameManager.playerGold -= container[currentDeckIndex].cards[index].cost;
-        await gameManager.PutTroop();
+        //await gameManager.PutTroop();
     }
 
 

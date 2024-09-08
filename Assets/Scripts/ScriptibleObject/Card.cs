@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "NewCard", menuName = "Card System/Card")]
 public class Card : ScriptableObject
@@ -7,5 +8,5 @@ public class Card : ScriptableObject
     public int troopCount;
     public string title;
     public string description;
-    public GameObject prefabs;
+    public Image image;
 }

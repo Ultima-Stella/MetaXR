@@ -133,17 +133,9 @@ public class GameManager : Singleton<GameManager>
         if (goldParticle != null)
             goldParticle.Play();
     }
-    public async void PutTroop()
+    public  void PutTroop()
     {
-
-        if()
-        await Task.Run(() =>
-           {
-
-
-
-
-           });
+ 
     }
     public void Timer()
     {
