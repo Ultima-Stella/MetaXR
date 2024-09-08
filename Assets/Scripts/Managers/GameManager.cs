@@ -3,119 +3,151 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Playables;
+using System.Threading.Tasks;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
-	public GameMode gameMode = GameMode.Gameplay;
+    public GameMode gameMode = GameMode.Gameplay;
 
-	private Platoon selectedPlatoon;
-	private PlayableDirector activeDirector;
+    private Platoon selectedPlatoon;
+    private PlayableDirector activeDirector;
+    public int playerGold = 50;
+    public ParticleSystem goldParticle;
 
-	private void Awake()
-	{
-		selectedPlatoon = GetComponent<Platoon>();
-		Cursor.lockState = CursorLockMode.Confined;
-		#if UNITY_EDITOR
-		Application.targetFrameRate = 30; //just to keep things "smooth" during presentations
-		#endif
-	}
+    private TextMeshProUGUI timerText;
+    private void Awake()
+    {
+        selectedPlatoon = GetComponent<Platoon>();
+        Cursor.lockState = CursorLockMode.Confined;
+        timerText = GameObject.Find("Canvas").transform.GetChild(2).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+#if UNITY_EDITOR
+        Application.targetFrameRate = 30; //just to keep things "smooth" during presentations
+#endif
+        InvokeRepeating("GainGold", 0f, 3f);
+        InvokeRepeating("Timer", 0f, 1f);
 
-	public void IssueCommand(AICommand cmd)
-	{
-		selectedPlatoon.ExecuteCommand(cmd);
-	}
+    }
 
-	public int GetSelectionLength()
-	{
-		return selectedPlatoon.units.Count;
-	}
+    public void IssueCommand(AICommand cmd)
+    {
+        selectedPlatoon.ExecuteCommand(cmd);
+    }
 
-	public Transform[] GetSelectionTransforms()
-	{
-		return selectedPlatoon.units.Select(x => x.transform).ToArray();
-	}
+    public int GetSelectionLength()
+    {
+        return selectedPlatoon.units.Count;
+    }
 
-	public void AddToSelection(Unit[] newSelectedUnits, bool clearPrevious = true)
-	{
-		if(clearPrevious)
-			ClearSelection();
-		
-		selectedPlatoon.AddUnits(newSelectedUnits);
-		for(int i = 0; i < newSelectedUnits.Length; i++)
-		{
-			newSelectedUnits[i].SetSelected(true);
-		}
-	}
+    public Transform[] GetSelectionTransforms()
+    {
+        return selectedPlatoon.units.Select(x => x.transform).ToArray();
+    }
 
-	public void AddToSelection(Unit newSelectedUnit, bool clearPrevious = true)
-	{
-		if(clearPrevious)
-			ClearSelection();
+    public void AddToSelection(Unit[] newSelectedUnits, bool clearPrevious = true)
+    {
+        if (clearPrevious)
+            ClearSelection();
 
-		selectedPlatoon.AddUnit(newSelectedUnit);
-		newSelectedUnit.SetSelected(true);
-	}
+        selectedPlatoon.AddUnits(newSelectedUnits);
+        for (int i = 0; i < newSelectedUnits.Length; i++)
+        {
+            newSelectedUnits[i].SetSelected(true);
+        }
+    }
 
-	public void RemoveFromSelection(Unit u)
-	{
-		selectedPlatoon.RemoveUnit(u);
-		u.SetSelected(false);
-	}
+    public void AddToSelection(Unit newSelectedUnit, bool clearPrevious = true)
+    {
+        if (clearPrevious)
+            ClearSelection();
 
-	public void ClearSelection()
-	{
-		for(int i = 0; i < selectedPlatoon.units.Count; i++)
-		{
-			selectedPlatoon.units[i].SetSelected(false);
-		}
+        selectedPlatoon.AddUnit(newSelectedUnit);
+        newSelectedUnit.SetSelected(true);
+    }
 
-		selectedPlatoon.Clear();
+    public void RemoveFromSelection(Unit u)
+    {
+        selectedPlatoon.RemoveUnit(u);
+        u.SetSelected(false);
+    }
 
-		if(CameraManager.Instance.IsFramingPlatoon)
-		{
-			CameraManager.Instance.SetPlatoonFramingMode(false);
-		}
-	}
+    public void ClearSelection()
+    {
+        for (int i = 0; i < selectedPlatoon.units.Count; i++)
+        {
+            selectedPlatoon.units[i].SetSelected(false);
+        }
 
-	public void SentSelectedUnitsTo(Vector3 pos)
-	{
-		AICommand newCommand = new AICommand(AICommand.CommandType.GoToAndGuard, pos);
-		IssueCommand(newCommand);
-	}
+        selectedPlatoon.Clear();
 
-	public void AttackTarget(Unit tgtUnit)
-	{
-		AICommand newCommand = new AICommand(AICommand.CommandType.AttackTarget, tgtUnit);
-		IssueCommand(newCommand);
-	}
+        if (CameraManager.Instance.IsFramingPlatoon)
+        {
+            CameraManager.Instance.SetPlatoonFramingMode(false);
+        }
+    }
 
-	public Unit[] GetAllSelectableUnits()
-	{
-		return GameObject.FindGameObjectsWithTag("Locals").Select(x => x.GetComponent<Unit>()).ToArray();
-	}
+    public void SentSelectedUnitsTo(Vector3 pos)
+    {
+        AICommand newCommand = new AICommand(AICommand.CommandType.GoToAndGuard, pos);
+        IssueCommand(newCommand);
+    }
 
-	//Called by the TimeMachine Clip (of type Pause)
-	public void PauseTimeline(PlayableDirector whichOne)
-	{
-		activeDirector = whichOne;
-		activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
-		gameMode = GameMode.DialogueMoment; //InputManager will be waiting for a spacebar to resume
-		UIManager.Instance.TogglePressSpacebarMessage(true);
-	}
+    public void AttackTarget(Unit tgtUnit)
+    {
+        AICommand newCommand = new AICommand(AICommand.CommandType.AttackTarget, tgtUnit);
+        IssueCommand(newCommand);
+    }
 
-	//Called by the InputManager
-	public void ResumeTimeline()
-	{
-		UIManager.Instance.TogglePressSpacebarMessage(false);
-		UIManager.Instance.ToggleDialoguePanel(false);
-		activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
-		gameMode = GameMode.Gameplay;
-	}
+    public Unit[] GetAllSelectableUnits()
+    {
+        return GameObject.FindGameObjectsWithTag("Locals").Select(x => x.GetComponent<Unit>()).ToArray();
+    }
 
-	public enum GameMode
-	{
-		Gameplay,
-		//Cutscene,
-		DialogueMoment, //waiting for input
-	}
+    //Called by the TimeMachine Clip (of type Pause)
+    public void PauseTimeline(PlayableDirector whichOne)
+    {
+        activeDirector = whichOne;
+        activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
+        gameMode = GameMode.DialogueMoment; //InputManager will be waiting for a spacebar to resume
+        UIManager.Instance.TogglePressSpacebarMessage(true);
+    }
+
+    //Called by the InputManager
+    public void ResumeTimeline()
+    {
+        UIManager.Instance.TogglePressSpacebarMessage(false);
+        UIManager.Instance.ToggleDialoguePanel(false);
+        activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
+        gameMode = GameMode.Gameplay;
+    }
+
+    public enum GameMode
+    {
+        Gameplay,
+        //Cutscene,
+        DialogueMoment, //waiting for input
+    }
+    public void GainGold()
+    {
+        playerGold += 1;
+        if (goldParticle != null)
+            goldParticle.Play();
+    }
+    public async void PutTroop()
+    {
+
+        if()
+        await Task.Run(() =>
+           {
+
+
+
+
+           });
+    }
+    public void Timer()
+    {
+
+        timerText.text = ((int)Time.time).ToString();
+    }
 }
