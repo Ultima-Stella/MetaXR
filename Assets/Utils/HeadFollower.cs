@@ -11,13 +11,13 @@ public class HeadFollower : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 newPos = Vector3.Lerp(transform.position, target.position, 0.5f);
+        Vector3 newPos = Vector3.Lerp(transform.position, target.position, 0.01f);
         transform.position = newPos;
         transform.LookAt(head.position);
-        for(int i = 0; i < transform.childCount;i++)
-        {
-            transform.GetChild(i).transform.LookAt(head);
-        }
+        //for(int i = 0; i < transform.childCount;i++)
+        //{
+        //    transform.GetChild(i).transform.LookAt(head);
+        //}
 
     }
 }
