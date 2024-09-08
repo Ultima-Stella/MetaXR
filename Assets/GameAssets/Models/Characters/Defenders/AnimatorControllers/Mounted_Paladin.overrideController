@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mounted_Paladin
+  m_Controller: {fileID: 9100000, guid: 33f0e8692ee3c4b82b9c9d05accd8579, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 7e5d05aabf649974b8a3545ee8dc7b58, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 63322e7d283549c4a9df1da1007a04a0, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 9ff059f812d3fc84f9c6d3699ec18647, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 2c4f369bba01b9346922d623974e7442, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 05dd1f4c8203cfc4a95604949869d05f, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 6f0078540aab4704e81fddf16331a814, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: ce3cafe1f65dfaf46bfa21dfc74e5eca, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: f94457a22f3ae4544b4a2ef90a18a7e6, type: 3}
