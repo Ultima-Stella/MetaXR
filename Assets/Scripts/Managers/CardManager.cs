@@ -42,5 +42,6 @@ public class CardManager : MonoBehaviour
 
         displayText.text = "Deck " + (currentDeckIndex + 1) + ":\n";
 
+
     }
 }
