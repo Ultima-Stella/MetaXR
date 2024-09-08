@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0302bf1439c34944bb75938175dcb417, type: 3}
   m_Name: Card1 9
   m_EditorClassIdentifier: 
-  cost: 0
-  troopCount: 0
-  title: 
+  cost: 7
+  troopCount: 7
+  title: arc7
   description: 
+  image: {fileID: 0}
