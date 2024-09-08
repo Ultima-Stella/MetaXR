@@ -353,7 +353,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48393757}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.054785863, y: 0.13279884, z: 0.051126424, w: 0.9883062}
   m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: -0.125, y: 0.125, z: 0.125}
   m_ConstrainProportionsScale: 0
@@ -361,10 +361,10 @@ RectTransform:
   - {fileID: 841037193}
   - {fileID: 31674135}
   m_Father: {fileID: 434698799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7, y: 15, z: 5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 0}
+  m_AnchoredPosition: {x: -60.3, y: -5.1}
   m_SizeDelta: {x: 640, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48393759
@@ -1012,6 +1012,9 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
+  _rigidbody: {fileID: 0}
+  _kinematicWhileSelected: 1
+  _throwWhenUnselected: 1
 --- !u!54 &188162163
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1125,6 +1128,9 @@ MonoBehaviour:
   blockId: 5c5184f2-c2f5-4063-b14b-3b1264fb3c1a
   instanceId: a6af1092-4495-406b-ae94-be082d833bd1
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &188162168
 Transform:
   m_ObjectHideFlags: 0
@@ -1470,6 +1476,9 @@ MonoBehaviour:
   blockId: 6b67162c-2460-4766-a931-980388647573
   instanceId: c582ecbe-1260-438a-8ad8-961694447838
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &236020922
 Transform:
   m_ObjectHideFlags: 0
@@ -1796,6 +1805,9 @@ MonoBehaviour:
   blockId: 81f55626-5fad-45e9-a1df-184f330da7ba
   instanceId: 76b917bf-c442-4171-a2fb-dd0bb66f924a
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &308120617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2663,9 @@ MonoBehaviour:
   blockId: 4187448e-9c2a-4021-ad92-fb65840f2721
   instanceId: 34366d6e-f273-40f3-935e-d171d584553d
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &429869026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,8 +2730,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 982517451}
   - {fileID: 1851296631}
+  - {fileID: 982517451}
   - {fileID: 1148022903}
   - {fileID: 48393758}
   - {fileID: 1878672676}
@@ -3559,9 +3574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1153690625}
-  _skinnedMeshRenderer: {fileID: 1464509075}
   _updateRootPose: 1
   _updateRootScale: 1
+  _skinnedMeshRenderer: {fileID: 1464509075}
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 1464509073}
   _jointTransforms:
@@ -4025,6 +4040,7 @@ MonoBehaviour:
   HandType: 0
   _pointerPoseRoot: {fileID: 0}
   m_showState: 3
+  RayHelper: {fileID: 0}
 --- !u!114 &687388709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4040,6 +4056,9 @@ MonoBehaviour:
   blockId: 8b26b298-7bf4-490e-b245-a039c0184303
   instanceId: 4149c1db-b588-4bc8-812e-e391a959b226
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &691373998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,12 +5708,14 @@ MonoBehaviour:
   virtualGreenScreenApplyDepthCulling: 0
   virtualGreenScreenDepthTolerance: 0.2
   mrcActivationMode: 0
-  launchMultimodalHandsControllersOnStartup: 0
+  launchSimultaneousHandsControllersOnStartup: 0
   isInsightPassthroughEnabled: 0
+  shouldBoundaryVisibilityBeSuppressed: 0
   requestBodyTrackingPermissionOnStartup: 0
   requestFaceTrackingPermissionOnStartup: 0
   requestEyeTrackingPermissionOnStartup: 0
   requestScenePermissionOnStartup: 0
+  requestRecordAudioPermissionOnStartup: 0
   _localDimming: 1
   _trackingOriginType: 1
   usePositionTracking: 1
@@ -5705,6 +5726,9 @@ MonoBehaviour:
   LateControllerUpdate: 1
   LateLatching: 0
   controllerDrivenHandPosesType: 0
+  SimultaneousHandsAndControllersEnabled: 0
+  _readOnlyWideMotionModeHandPosesEnabled: 0
+  wideMotionModeHandPosesEnabled: 0
 --- !u!114 &943276404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5735,6 +5759,9 @@ MonoBehaviour:
   blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
   instanceId: 891bdbcc-b14d-4e3e-912b-7e2d109f4c90
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &943276406
 Transform:
   m_ObjectHideFlags: 0
@@ -5814,6 +5841,9 @@ MonoBehaviour:
   blockId: 0393ca30-f2a9-4865-a40f-f9a68d01c3a9
   instanceId: 1610473e-8c09-4968-b0f0-97aa81207a73
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &950991605
 GameObject:
   m_ObjectHideFlags: 0
@@ -5965,7 +5995,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982517450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.05478586, y: -0.13279893, z: -0.051126428, w: 0.9883062}
   m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: -0.125, y: 0.125, z: 0.125}
   m_ConstrainProportionsScale: 0
@@ -5973,10 +6003,10 @@ RectTransform:
   - {fileID: 357645015}
   - {fileID: 1480628557}
   m_Father: {fileID: 434698799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7, y: -15, z: -5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 0}
+  m_AnchoredPosition: {x: 61.399536, y: -5.999756}
   m_SizeDelta: {x: 640, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982517452
@@ -6107,9 +6137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 236020920}
-  _skinnedMeshRenderer: {fileID: 336507501}
   _updateRootPose: 1
   _updateRootScale: 1
+  _skinnedMeshRenderer: {fileID: 336507501}
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 336507499}
   _jointTransforms:
@@ -6885,6 +6915,9 @@ MonoBehaviour:
   blockId: 4187448e-9c2a-4021-ad92-fb65840f2721
   instanceId: 5374b093-0561-4e0a-ac17-0537bec5966e
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1088719371
 GameObject:
   m_ObjectHideFlags: 0
@@ -7064,6 +7097,9 @@ MonoBehaviour:
   blockId: 27673ac1-cdb0-443f-a07d-6ff1d34daeca
   instanceId: 74c27af8-aaa8-419d-b2d3-f5de600a81e9
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1105380319
 GameObject:
   m_ObjectHideFlags: 0
@@ -7267,15 +7303,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148022902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -60}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 0, z: -45}
   m_LocalScale: {x: -0.125, y: 0.125, z: 0.125}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1623418406}
   - {fileID: 290246267}
   m_Father: {fileID: 434698799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7624,6 +7660,9 @@ MonoBehaviour:
   blockId: 6b67162c-2460-4766-a931-980388647573
   instanceId: 8fc25d46-31ae-4336-9285-ecf5fa198f31
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &1153690627
 Transform:
   m_ObjectHideFlags: 0
@@ -7805,6 +7844,9 @@ MonoBehaviour:
   blockId: f61a01e5-61c7-4589-bd2d-107bccae8f02
   instanceId: 85e3e092-265c-452a-8141-113e8beb7048
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1180784989
 GameObject:
   m_ObjectHideFlags: 0
@@ -8206,6 +8248,7 @@ MonoBehaviour:
   HandType: 1
   _pointerPoseRoot: {fileID: 0}
   m_showState: 3
+  RayHelper: {fileID: 0}
 --- !u!114 &1215851966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8221,6 +8264,9 @@ MonoBehaviour:
   blockId: 8b26b298-7bf4-490e-b245-a039c0184303
   instanceId: 4c135ee6-9efe-4897-b9d2-b2035ab188fc
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1229704937
 GameObject:
   m_ObjectHideFlags: 0
@@ -8713,6 +8759,7 @@ MonoBehaviour:
   _cameraRigRef: {fileID: 305092367}
   _processLateUpdates: 0
   _handedness: 1
+  _ovrHand: {fileID: 0}
   _trackingToWorldTransformer: {fileID: 305092366}
   _handSkeletonProvider: {fileID: 947562772}
 --- !u!4 &1326797641
@@ -9286,6 +9333,9 @@ MonoBehaviour:
   blockId: f61a01e5-61c7-4589-bd2d-107bccae8f02
   instanceId: 8529927a-e995-4634-b0ae-77c3b9234670
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1379908229
 GameObject:
   m_ObjectHideFlags: 0
@@ -9320,6 +9370,7 @@ MonoBehaviour:
   _cameraRigRef: {fileID: 305092367}
   _processLateUpdates: 0
   _handedness: 0
+  _ovrHand: {fileID: 0}
   _trackingToWorldTransformer: {fileID: 305092366}
   _handSkeletonProvider: {fileID: 947562772}
 --- !u!4 &1379908231
@@ -10158,9 +10209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabInteractor: {fileID: 426481488}
+  _handVisual: {fileID: 0}
   _handRenderer: {fileID: 0}
   _materialEditor: {fileID: 0}
-  _handVisual: {fileID: 0}
   _glowColorGrabing: {r: 1, g: 1, b: 1, a: 0}
   _glowColorHover: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
   _colorChangeSpeed: 0.5
@@ -11282,6 +11333,9 @@ MonoBehaviour:
   blockId: 27673ac1-cdb0-443f-a07d-6ff1d34daeca
   instanceId: 020ea036-2392-41cc-bd4a-37ceaff1a064
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1662537191
 GameObject:
   m_ObjectHideFlags: 0
@@ -11513,9 +11567,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabInteractor: {fileID: 1082661940}
+  _handVisual: {fileID: 0}
   _handRenderer: {fileID: 0}
   _materialEditor: {fileID: 0}
-  _handVisual: {fileID: 0}
   _glowColorGrabing: {r: 1, g: 1, b: 1, a: 0}
   _glowColorHover: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
   _colorChangeSpeed: 0.5
@@ -12355,7 +12409,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851296630}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.06139393, y: -0.2641903, z: -0.10633739, w: 0.95662254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.125, y: 0.125, z: 0.125}
   m_ConstrainProportionsScale: 0
@@ -12363,10 +12417,10 @@ RectTransform:
   - {fileID: 2136702983}
   - {fileID: 1860649993}
   m_Father: {fileID: 434698799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10, y: -30, z: -10}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 0}
+  m_AnchoredPosition: {x: 116.5, y: -11.4}
   m_SizeDelta: {x: 640, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851296632
@@ -12649,7 +12703,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878672675}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.061393924, y: 0.26419038, z: 0.1063374, w: 0.95662254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.125, y: 0.125, z: 0.125}
   m_ConstrainProportionsScale: 0
@@ -12657,10 +12711,10 @@ RectTransform:
   - {fileID: 998149824}
   - {fileID: 1314855370}
   m_Father: {fileID: 434698799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10, y: 30, z: 10}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: 0}
+  m_AnchoredPosition: {x: -112.999855, y: -11.8}
   m_SizeDelta: {x: 640, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1878672677
