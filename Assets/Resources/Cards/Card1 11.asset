@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card1 11
   m_EditorClassIdentifier: 
   cost: 3
-  troopCount: 2
-  title: 
+  troopCount: 3
+  title: arc3
   description: 
-  prefabs: {fileID: 0}
+  image: {fileID: 0}

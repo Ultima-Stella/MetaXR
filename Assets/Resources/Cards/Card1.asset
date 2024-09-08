@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0302bf1439c34944bb75938175dcb417, type: 3}
   m_Name: Card1
   m_EditorClassIdentifier: 
-  cost: 2
-  troopCount: 3
-  title: 5
-  description: 2
-  loot: 1
+  cost: 11
+  troopCount: 10
+  title: cav10
+  description: 
   image: {fileID: 0}
-  Prefabs: {fileID: 0}
