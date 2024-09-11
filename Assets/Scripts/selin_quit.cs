@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 public class QuitButton : MonoBehaviour
 {
 
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);    
+    
+    }
+
     public void QuitGame()
     {
         // This will quit the application
